@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @vacancy.name %>
-</p>
+<h1><%= @vacancy.name %></h1>
+
 
 <p>
-  <strong>Start date:</strong>
+  <strong>Начало поиска:</strong>
   <%= @vacancy.start_date %>
 </p>
 
 <p>
-  <strong>End date:</strong>
+  <strong>Конец поиска:</strong>
   <%= @vacancy.end_date %>
 </p>
 
 <p>
-  <strong>Salary:</strong>
+  <strong>Зарплата:</strong>
   <%= @vacancy.salary %>
 </p>
 
-<%= link_to 'Edit', edit_vacancy_path(@vacancy) %> |
-<%= link_to 'Back', vacancies_path %>
+<p>
+  <strong>Необходимые умения:</strong>
+  <%= @vacancy.skills.map(&:name).join(', ') %>
+</p>
+
+<%= render partial: "contact_info/contact", locals: {contacts: @vacancy.slice(:phone_number_formatter, :email)} %>
+
+
+
+<%= link_to 'Изменить', edit_vacancy_path(@vacancy) %> |
+<%= link_to 'Назад', vacancies_path %>

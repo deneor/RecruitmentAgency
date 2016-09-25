@@ -1,5 +1,6 @@
 module ContactInfoHelper
   def phone_number_formatter
+    return 'не предоставлен' if phone_number.nil?
     if phone_number.scan(/\d/).count==11
       phone_number.gsub!(/[\s+\(\)]/, '')
       "+#{phone_number[0]}"+

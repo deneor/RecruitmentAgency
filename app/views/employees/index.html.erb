@@ -1,26 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Employees</h1>
+<h1>Кадры</h1>
 
 <table>
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Desired salary</th>
-    <th colspan="3"></th>
+    <th>Имя</th>
+    <th>Статус</th>
+    <th>Желаемая зарплата</th>
+    <th colspan="2"></th>
   </tr>
   </thead>
 
   <tbody>
   <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.name %></td>
-        <td><%= employee.status %></td>
+        <td><%= link_to employee.name, employee %></td>
+        <td><%= employee.status_name %></td>
         <td><%= employee.desired_salary %></td>
-        <td><%= link_to 'Show', employee %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td></td>
+        <td><%= link_to 'Редактировать', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Удалить', employee, method: :delete, data: {confirm: 'Вы уверены?'} %></td>
       </tr>
   <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'Новый кадр', new_employee_path %>

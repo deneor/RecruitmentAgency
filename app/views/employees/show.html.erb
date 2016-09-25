@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @employee.name %></h1>
+
 <p>
-  <strong>Name:</strong>
-  <%= @employee.name %>
+  <strong>Статус:</strong>
+  <%= @employee.status_name %>
 </p>
 
 <p>
-  <strong>Status:</strong>
-  <%= @employee.status %>
-</p>
-
-<p>
-  <strong>Desired salary:</strong>
+  <strong>Желаемая зарплата:</strong>
   <%= @employee.desired_salary %>
 </p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<p>
+  <strong>Умения:</strong>
+  <%= @employee.skills.map(&:name).join(', ') %>
+</p>
+
+
+<%= render partial: "contact_info/contact", locals: {contacts: @employee.slice(:phone_number_formatter, :email)} %>
+
+
+<%= link_to 'Редактировать', edit_employee_path(@employee) %> |
+<%= link_to 'Назад', employees_path %>
