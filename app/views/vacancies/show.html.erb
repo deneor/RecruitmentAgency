@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vacancy.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @vacancy.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @vacancy.end_date %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @vacancy.salary %>
+</p>
+
+<%= link_to 'Edit', edit_vacancy_path(@vacancy) %> |
+<%= link_to 'Back', vacancies_path %>
