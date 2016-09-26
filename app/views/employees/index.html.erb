@@ -2,29 +2,7 @@
 
 <h1>Кадры</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Имя</th>
-    <th>Статус</th>
-    <th>Желаемая зарплата</th>
-    <th colspan="2"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @employees.each do |employee| %>
-      <tr>
-        <td><%= link_to employee.name, employee %></td>
-        <td><%= employee.status_name %></td>
-        <td><%= employee.desired_salary %></td>
-        <td></td>
-        <td><%= link_to 'Редактировать', edit_employee_path(employee) %></td>
-        <td><%= link_to 'Удалить', employee, method: :delete, data: {confirm: 'Вы уверены?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: "employees/list", locals: {employees: @employees, control_actions: true} %>
 
 <br>
 

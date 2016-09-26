@@ -12,27 +12,27 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %>
+      <%= f.label :name, 'Фамилия, Имя, Отчество' %>
       <%= f.text_field :name %>
     </div>
 
     <div class="field">
-      <%= f.label :status %>
+      <%= f.label :status, 'Статус поиска (при заполнении: в поиске)' %>
       <%= f.check_box :status %>
     </div>
 
     <div class="field">
-      <%= f.label :desired_salary %>
+      <%= f.label :desired_salary, 'Желаемая зарплата' %>
       <%= f.text_field :desired_salary %>
     </div>
 
     <div class="field">
-      <%= f.label :phone_number %>
+      <%= f.label :phone_number, 'Номер телефона' %>
       <%= f.text_field :phone_number %>
     </div>
 
     <div class="field">
-      <%= f.label :email %>
+      <%= f.label :email, 'Адрес электронной почты' %>
       <%= f.text_field :email %>
     </div>
 
@@ -42,6 +42,6 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Сохранить' %>
     </div>
 <% end %>

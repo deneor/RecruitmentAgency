@@ -1,0 +1,30 @@
+<% if employees.any? %>
+    <table class="table table-stripped">
+      <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Статус</th>
+        <th>Желаемая зарплата</th>
+        <% if control_actions %>
+            <th colspan="2"></th>
+        <% end %>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% employees.each do |employee| %>
+          <tr>
+            <td><%= link_to employee.name, employee %></td>
+            <td><%= employee.status_name %></td>
+            <td><%= employee.desired_salary %></td>
+            <% if control_actions %>
+                <td><%= link_to 'Редактировать', edit_employee_path(employee) %></td>
+                <td><%= link_to 'Удалить', employee, method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+            <% end %>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% else %>
+    <p>Работников не найдено</p>
+<% end %>

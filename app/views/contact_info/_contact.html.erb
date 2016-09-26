@@ -5,5 +5,5 @@
 
 <p>
   <strong>Email:</strong>
-  <%= contacts[:email] ? 'не предоставлен' : mail_to(contacts[:email], contacts[:email]) %>
+  <%= contacts[:email].empty? ? 'не предоставлен' : mail_to(contacts[:email], contacts[:email]) %>
 </p>

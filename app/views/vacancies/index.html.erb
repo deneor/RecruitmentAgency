@@ -1,32 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Vacancies</h1>
+<h1>Все вакансии</h1>
 
-<table>
-  <thead>
-  <tr>
-    <th>Название</th>
-    <th>С</th>
-    <th>По</th>
-    <th>Зарплата</th>
-    <th colspan="2"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @vacancies.each do |vacancy| %>
-      <tr>
-        <td><%= link_to vacancy.name, vacancy %></td>
-        <td><%= vacancy.start_date.to_s(:short) if vacancy.start_date %></td>
-        <td><%= vacancy.end_date.to_s(:short) if vacancy.end_date %></td>
-        <td><%= vacancy.salary %></td>
-        <td><%= link_to 'Изменить', edit_vacancy_path(vacancy) %></td>
-        <td><%= link_to 'Удалить', vacancy, method: :delete, data: {confirm: 'Вы уверены?'} %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render partial: "vacancies/list", locals: {vacancies: @vacancies, control_actions: true} %>
 
 <br>
 
-<%= link_to 'New Vacancy', new_vacancy_path %>
+<%= link_to 'Добавить новую вакансию', new_vacancy_path %>

@@ -12,32 +12,32 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :name %>
+      <%= f.label :name, 'Название компании' %>
       <%= f.text_field :name %>
     </div>
 
     <div class="field">
-      <%= f.label :start_date %>
+      <%= f.label :start_date, 'Дата начала действия вакансии' %>
       <%= f.datetime_select :start_date %>
     </div>
 
     <div class="field">
-      <%= f.label :end_date %>
+      <%= f.label :end_date, 'Дата окончания действия вакансии' %>
       <%= f.datetime_select :end_date %>
     </div>
 
     <div class="field">
-      <%= f.label :salary %>
+      <%= f.label :salary, 'Зарплата' %>
       <%= f.text_field :salary %>
     </div>
 
     <div class="field">
-      <%= f.label :phone_number %>
+      <%= f.label :phone_number, 'Номер телефона' %>
       <%= f.text_field :phone_number %>
     </div>
 
     <div class="field">
-      <%= f.label :email %>
+      <%= f.label :email, 'Адрес электронной почты' %>
       <%= f.text_field :email %>
     </div>
 
@@ -47,6 +47,6 @@
     </div>
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Сохранить' %>
     </div>
 <% end %>
