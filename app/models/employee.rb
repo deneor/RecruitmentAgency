@@ -1,7 +1,6 @@
 class Employee < ApplicationRecord
   has_and_belongs_to_many :skills
   include ContactInfoHelper
-  include SkillsCompareHelper
   validates_format_of :name,
                       :with => /\A[а-яА-яёЁ]*\s*[а-яА-яёЁ]*\s*[а-яА-яёЁ]*\s*\z/,
                       message: 'Имя должно содержать 3 слова из кирилических букв и пробелов'
