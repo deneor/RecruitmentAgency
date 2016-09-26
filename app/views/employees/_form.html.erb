@@ -26,6 +26,8 @@
       <%= f.text_field :desired_salary %>
     </div>
 
+    <div class="form-group">
+      <%= f.label :contact_info, 'Контактная информация' %>
     <div class="field">
       <%= f.label :phone_number, 'Номер телефона' %>
       <%= f.text_field :phone_number %>
@@ -35,7 +37,7 @@
       <%= f.label :email, 'Адрес электронной почты' %>
       <%= f.text_field :email %>
     </div>
-
+    </div>
     <div class="field">
       <%= f.label :skills_list, "Ваши умения: (разделяйте их запятыми)" %><br/>
       <%= f.text_field :skills_list, data: {load: @employee.skills.map(&:attributes).to_json} %>

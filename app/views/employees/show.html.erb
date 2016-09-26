@@ -14,7 +14,9 @@
 
 <p>
   <strong>Умения:</strong>
-  <%= @employee.skills.map(&:name).join(', ') %>
+  <% @employee.skills.each do |s| %>
+      <span class="label label-default"><%= s.name %></span>
+  <% end %>
 </p>
 <%= render partial: "contact_info/contact", locals: {contacts: @employee.slice(:phone_number_formatter, :email)} %>
 </div>

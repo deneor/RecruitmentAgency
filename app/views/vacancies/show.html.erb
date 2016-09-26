@@ -20,7 +20,9 @@
 
 <p>
   <strong>Необходимые умения:</strong>
-  <%= @vacancy.skills.map(&:name).join(', ') %>
+  <% @vacancy.skills.each do |s| %>
+      <span class="label label-default"><%= s.name %></span>
+  <% end %>
 </p>
 
 <%= render partial: "contact_info/contact", locals: {contacts: @vacancy.slice(:phone_number_formatter, :email)} %>

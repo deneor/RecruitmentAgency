@@ -2,7 +2,13 @@ class Employee < ApplicationRecord
   has_and_belongs_to_many :skills
   include ContactInfoHelper
   include SkillsCompareHelper
-  validates_format_of :name, :with => /\A[а-яА-я]*\s*[а-яА-я]*\s*[а-яА-я]*\s*\z/, message: 'Имя должно содержать 3 слова из кирилических букв и пробелов'
+  validates_format_of :name,
+                      :with => /\A[а-яА-яёЁ]*\s*[а-яА-яёЁ]*\s*[а-яА-яёЁ]*\s*\z/,
+                      message: 'Имя должно содержать 3 слова из кирилических букв и пробелов'
+  validates :email,
+            format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i},
+            allow_blank: true
+  validate :validate_if_have_any_contact
   scope :all_active, -> { where(status: true).order(desired_salary: :asc) }
   attr_accessor :skills_list
   attr_accessor :skills_rank
@@ -26,6 +32,14 @@ class Employee < ApplicationRecord
       v.skills_rank=((v.skills & skills).count*1.0 / v.skills.count)
     end
     return vacancies
+  end
+
+  private
+
+  def validate_if_have_any_contact
+    if phone_number.blank? and email.blank?
+      errors.add(:contact_info, "Необходимо заполнить поле номер телефона или адрес электронной почты")
+    end
   end
 
 end

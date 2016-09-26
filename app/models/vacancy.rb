@@ -11,7 +11,7 @@ class Vacancy < ApplicationRecord
       skills_to_add << (Skill.find_by_id(s) || Skill.find_or_create_by(name: s))
     end
     skills.delete(skills-skills_to_add)
-    skills << skills_to_add-skills
+    skills << (skills_to_add-skills)
   end
 
   def employees
